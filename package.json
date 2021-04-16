@@ -1,0 +1,22 @@
+{
+  "name": "saia-dynamic-logo",
+  "version": "1.0.0",
+  "description": "Create your logo off of your name",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saiacode/SAIA-Dynamic-Logo.git"
+  },
+  "keywords": [
+    "generative"
+  ],
+  "author": "Alexander Ditzend",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saiacode/SAIA-Dynamic-Logo/issues"
+  },
+  "homepage": "https://github.com/saiacode/SAIA-Dynamic-Logo#readme"
+}
