@@ -25,7 +25,7 @@ const getRandomFromPalette = () => {
 };
 
 const testLines = (state) => {
-  state.numShapes = state.omega ? state.sides : state.sides * 2;
+  state.numShapes = randomSelectTwo() ? state.sides : state.sides * 2;
   state.angle = 360 / state.numShapes;
 
   return {
@@ -75,7 +75,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: 0.7,
+    weight: 1,
   },
   {
     name: "Centered Shape",
@@ -93,7 +93,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: .7,
+    weight: 1,
   },
   {
     name: "Simple Lines",
@@ -102,7 +102,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: 1,
+    weight: 0.7,
   },
   {
     name: "Dotted Lines",
@@ -111,7 +111,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: .7,
+    weight: 1,
   },
   {
     name: "Ring of Shapes",
