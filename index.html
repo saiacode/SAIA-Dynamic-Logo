@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>SAIA Logo Dinámico</title>
-    <script src="lib/p5.js"></script>
-    <script src="lib/p5.svg.js"></script>
-    <script src="lib/ml5.min.js"></script>
-    <script src="sketch.js"></script>
-    <script src="Layers.js"></script>
-    <script src="Extractor.js"></script>
-    <script src="helpers.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" /> 
-    
-  </head>
-  <!-- <body onload="extract()"> -->
-  <body onload="document.getElementById('fname').focus()">
-    <div id="p5"></div>
-    <form id="f1" onsubmit="extract(); return false">
-      <label for="fname">Tu nombre</label>
-      <input type="text" id="fname" name="fname"/><br /><br />
-      <input type="button" onclick="extract()" value="Crear Logo Personal" />
-    </form>
+<head>
+  <title>SAIA Logo Dinámico</title>
+  <script src="lib/p5.js"></script>
+  <script src="lib/p5.svg.js"></script>
+  <!-- <script src="lib/ml5.min.js"></script> -->
+  <script src="sketch.js"></script>
+  <script src="Layers.js"></script>
+  <script src="Extractor.js"></script>
+  <script src="helpers.js"></script>
 
-    <button onClick="downloadSvg()">guardar SVG</button>
-    
+  <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 
-    <script>
-    
+</head>
+<!-- <body onload="extract()"> -->
+
+<body onload="document.getElementById('fname').focus()">
+  <div id="p5"></div>
+  <form id="f1" onsubmit="extract(); return false">
+    <label for="fname">Tu nombre</label>
+    <input type="text" id="totalName" name="fname" /><br /><br />
+    <input type="button" onclick="extract()" value="Crear Logo Personal" />
+  </form>
+
+  <button onClick="downloadSvg()">guardar SVG</button>
 
 
-        
+  <script>
 
-    </script>
-  </body>
+
+
+
+
+  </script>
+</body>
+
 </html>

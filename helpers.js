@@ -20,7 +20,7 @@ const randomSelectTwo = () => {
 };
 
 const getRandomFromPalette = () => {
-  const index = floor(random(0,PALETTE.length));
+  const index = floor(random(0, PALETTE.length));
   return PALETTE[index];
 };
 
@@ -102,7 +102,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: 1,
+    weight: 0.7,
   },
   {
     name: "Dotted Lines",
@@ -170,5 +170,5 @@ const drawCrystal = (crystal) => {
 };
 
 function canDivide(dividend, divisor) {
-    return (dividend % divisor) === 0 ? 1 : 0;
+  return (dividend % divisor) === 0 ? 1 : 0;
 }
