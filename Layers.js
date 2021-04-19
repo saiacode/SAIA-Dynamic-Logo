@@ -197,8 +197,10 @@ const gradientLines = (state) => {
       strokeWeight(state.weight);
       push();
       if (state.textNormalized) {
+        let hash = state.textNormalized
 
-        let n = state.textNormalized.length * 16
+        // let n = state.textNormalized.length * 16
+        let n = 60 + hash.length
         let angle = 360 / n
         let start = state.size * (0.9 - state.textNormalized[3])
 
@@ -210,6 +212,36 @@ const gradientLines = (state) => {
           for (let i = 0; i <= n / g; i++) {
             strokeWeight(0.2 + (i * 0.1))
             line(start, 0, state.size, 0);
+            rotate(angle);
+          }
+          rotate(-angle)
+
+        }
+        for (let j = 1; j <= g + 1; j++) {
+
+          for (let i = 0; i <= n / g; i++) {
+            strokeWeight(0.2 + (i * 0.1))
+            line(start / 4, 0, state.size / 4, 0);
+            rotate(angle);
+          }
+          rotate(-angle)
+
+        }
+        for (let j = 1; j <= g + 1; j++) {
+
+          for (let i = 0; i <= n / g; i++) {
+            strokeWeight(0.2 + (i * 0.1))
+            line(start / 3, 0, state.size / 3, 0);
+            rotate(angle);
+          }
+          rotate(-angle)
+
+        }
+        for (let j = 1; j <= g + 1; j++) {
+
+          for (let i = 0; i <= n / g; i++) {
+            strokeWeight(0.4 + (hash[i]))
+            line(start / 2, 0, state.size * .8, 0);
             rotate(angle);
           }
           rotate(-angle)
