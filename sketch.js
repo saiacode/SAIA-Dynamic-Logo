@@ -47,21 +47,3 @@ function draw() {
 } //draw
 
 
-
-
-function two() {
-  // forma 0 : arcos para logos personales
-  for (let i = 0; i <= n; i++) {
-    let x = 0 + cos(i * angle)
-    let y = 0 + sin(i * angle)
-    strokeWeight(state.textNormalized[i] > 0.5 ? 2.5 : 3.5);
-    // strokeWeight(Math.random() * 2)
-    let start = state.textNormalized[i] * 360
-    let end = start + state.textNormalized[i + 1] * 300
-    // console.log(`${size * i / n * 30} \n\n`)
-    arc(x, y, size * i / n * 30, size * i / n * 30, start, end)
-  }
-
-  arc(10, 10, 100, 100, 45, 90)
-  pop();
-}

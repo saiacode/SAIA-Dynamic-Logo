@@ -69,24 +69,6 @@ const myTriangle = (center, radius, direction) => {
 
 const layerConstructors = [
   {
-    name: "Hexa Ring",
-    init: (props) =>
-      hexaRing({
-        ...props,
-        ...setState(state),
-      }),
-    group: 1,
-  },
-  {
-    name: "Expo Rings",
-    init: (props) =>
-      expoRings({
-        ...props,
-        ...setState(state),
-      }),
-    group: 0,
-  },
-  {
     name: "Circles",
     init: (props) =>
       circles({
@@ -96,13 +78,41 @@ const layerConstructors = [
     group: 0,
   },
   {
+    name: "Concentric Arcs",
+    init: (props) =>
+      concentricArcs({
+        ...props,
+        ...setState(state),
+      }),
+    group: 1,
+  },
+  {
+    name: "Hexa Ring",
+    init: (props) =>
+      hexaRing({
+        ...props,
+        ...setState(state),
+      }),
+    group: 2,
+  },
+  {
+    name: "Expo Rings",
+    init: (props) =>
+      expoRings({
+        ...props,
+        ...setState(state),
+      }),
+    group: 3,
+  },
+
+  {
     name: "Simple Lines",
     init: (props) =>
       simpleLines({
         ...props,
         ...setState(state),
       }),
-    group: 0,
+    group: 4,
   },
   {
     name: "Dotted Lines",
@@ -111,7 +121,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    group: 2,
+    group: 5,
   },
   {
     name: "Ring of Shapes",
@@ -120,7 +130,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    group: 3,
+    group: 6,
   },
   {
     name: "Stepped Hexagons",
@@ -129,7 +139,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    group: 4,
+    group: 7,
   },
   {
     name: "Test Lines",
@@ -140,7 +150,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    group: 5,
+    group: 8,
   },
 ];
 

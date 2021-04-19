@@ -53,41 +53,6 @@ const circles = (state) => {
     },
   };
 };
-// const circles = (state) => {
-//     let show = 0
-//     let ex = 1;
-//     // let ex = show + state.rho + state.pi + state.omicron + state.pi + state.nu
-//     let weight = state.alpha < 6?state.thickStroke * 0.86 :state.thinStroke * 0.2 * 0.86;
-//     // let numShapes =
-//     //   show + 6 - (state.rho + state.pi + state.omicron + state.pi + state.nu);
-//     state.shapeSize = CRYSTAL_SIZE * Math.pow(0.618, ex);
-//     console.log('CIRCLE SIZE : ', state.shapeSize)
-//     state.position = CRYSTAL_SIZE / 2 - state.shapeSize / 2;
-//     let numCircles = state.alpha;
-//     // let numCircles = 3 + int(38*state.beta);
-
-
-//   return {
-//     name: "circles",
-//     state,
-//       render: () => {
-
-//       noFill();
-//       stroke(state.layerColor);
-//       strokeWeight(weight);
-//       push();
-//       //translate(width/2, height/2)
-//         if (state.gamma) {
-//             for (let i = 0; i <= numCircles; i++) {
-//         ellipse(state.position, 0, state.shapeSize, state.shapeSize);
-//         rotate(360/numCircles);
-//       }
-//         }
-
-//       pop();
-//     },
-//   };
-// };
 
 const simpleLines = (state) => {
   // third character dependant
@@ -147,6 +112,40 @@ const hexaRing = (state) => {
 
           rotate(360 / (n));
         }
+
+      }
+      pop();
+    },
+  };
+};
+const concentricArcs = (state) => {
+  state.weight = state.omega ? state.thickStroke : state.thinStroke;
+  state.hexagonTrue = state.omega;
+
+  return {
+    name: "Concentric Arcs",
+    state,
+    render: () => {
+      noFill();
+      stroke(state.layerColor);
+
+      strokeWeight(state.weight);
+      push();
+      if (state.textNormalized) {
+
+        // forma 0 : arcos para logos personales
+        for (let i = 0; i <= n; i++) {
+          let x = 0 + cos(i * angle)
+          let y = 0 + sin(i * angle)
+          strokeWeight(state.textNormalized[i] > 0.5 ? 2.5 : 3.5);
+          // strokeWeight(Math.random() * 2)
+          let start = state.textNormalized[i] * 360
+          let end = start + state.textNormalized[i + 1] * 300
+          // console.log(`${size * i / n * 30} \n\n`)
+          arc(x, y, size * i / n * 30, size * i / n * 30, start, end)
+        }
+
+        // arc(10, 10, 100, 100, 45, 90)
 
       }
       pop();
