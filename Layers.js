@@ -102,16 +102,32 @@ const hexaRing = (state) => {
       strokeWeight(state.weight);
       push();
       if (state.textNormalized) {
+        const hash = state.textNormalized
 
-        let n = state.textNormalized.length
-        let size = 60 + 60 * state.textNormalized[0]
+        let n = hash.length
+        let size = 60 + 60 * hash[0]
+        let angle = 360 / n
+
+        // rotate(angle)
+
+
         for (let i = 0; i < n; i++) {
-          let j = state.textNormalized[i]
-          hexagon(size, 0, 54);
-          // hexagon(size, 0, 30 * j);
-
-          rotate(360 / (n));
+          let x = cos(angle) * size
+          let y = sin(angle) * size * 0.8
+          hexagon(x, y, size);
+          angle += angle
         }
+        // for (let i = 0; i < n; i++) {
+        //   let x = cos(angle) * 7
+        //   let y = sin(angle) * 7
+        //   hexagon(x, y, size * 0.9 * hash[0]);
+        //   angle = angle * 2
+        //   // rotate(angle);
+        // }
+
+
+
+
 
       }
       pop();
