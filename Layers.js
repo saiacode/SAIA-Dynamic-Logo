@@ -123,7 +123,7 @@ const concentricArcs = (state) => {
   state.hexagonTrue = state.omega;
 
   return {
-    name: "Concentric Arcs",
+    name: "Arcos para logos personales",
     state,
     render: () => {
       noFill();
@@ -133,7 +133,10 @@ const concentricArcs = (state) => {
       push();
       if (state.textNormalized) {
 
-        // forma 0 : arcos para logos personales
+        let n = state.textNormalized.length
+        let angle = 360 / n
+        let size = 15
+
         for (let i = 0; i <= n; i++) {
           let x = 0 + cos(i * angle)
           let y = 0 + sin(i * angle)
@@ -145,7 +148,7 @@ const concentricArcs = (state) => {
           arc(x, y, size * i / n * 30, size * i / n * 30, start, end)
         }
 
-        // arc(10, 10, 100, 100, 45, 90)
+        arc(10, n, 100, 100, 45, 90)
 
       }
       pop();
