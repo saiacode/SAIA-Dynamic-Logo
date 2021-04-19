@@ -123,7 +123,7 @@ const concentricArcs = (state) => {
   state.hexagonTrue = state.omega;
 
   return {
-    name: "Arcos para logos personales",
+    name: "Concentric Arcs",
     state,
     render: () => {
       noFill();
@@ -141,14 +141,80 @@ const concentricArcs = (state) => {
           let x = 0 + cos(i * angle)
           let y = 0 + sin(i * angle)
           strokeWeight(state.textNormalized[i] > 0.5 ? 2.5 : 3.5);
-          // strokeWeight(Math.random() * 2)
           let start = state.textNormalized[i] * 360
           let end = start + state.textNormalized[i + 1] * 300
-          // console.log(`${size * i / n * 30} \n\n`)
           arc(x, y, size * i / n * 30, size * i / n * 30, start, end)
         }
 
         arc(10, n, 100, 100, 45, 90)
+
+      }
+      pop();
+    },
+  };
+};
+const rotatedPolygons = (state) => {
+  state.weight = state.omega ? state.thickStroke : state.thinStroke;
+  state.hexagonTrue = state.omega;
+
+  return {
+    name: "Rotated Polygons",
+    state,
+    render: () => {
+      noFill();
+      stroke(state.layerColor);
+
+      strokeWeight(state.weight);
+      push();
+      if (state.textNormalized) {
+
+        let n = state.textNormalized.length
+        let angle = 360 / n
+        let size = 15
+
+        for (let i = 0; i < n; i++) {
+          hexagon(0, 0, 30 * i);
+
+          rotate(360 / (0.8 * n));
+        }
+
+      }
+      pop();
+    },
+  };
+};
+const gradientLines = (state) => {
+  state.weight = state.omega ? state.thickStroke : state.thinStroke;
+  state.hexagonTrue = state.omega;
+
+  return {
+    name: "Gradient Lines",
+    state,
+    render: () => {
+      noFill();
+      stroke(state.layerColor);
+
+      strokeWeight(state.weight);
+      push();
+      if (state.textNormalized) {
+
+        let n = state.textNormalized.length * 16
+        let angle = 360 / n
+        let start = state.size * (0.9 - state.textNormalized[3])
+
+        let halves = state.delta + state.epsilon + state.zeta + state.eta
+        let g = 2 ** halves
+
+        for (let j = 1; j <= g + 1; j++) {
+
+          for (let i = 0; i <= n / g; i++) {
+            strokeWeight(0.2 + (i * 0.1))
+            line(start, 0, state.size, 0);
+            rotate(angle);
+          }
+          rotate(-angle)
+
+        }
 
       }
       pop();

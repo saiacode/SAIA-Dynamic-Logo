@@ -87,9 +87,9 @@ const layerConstructors = [
     group: 1,
   },
   {
-    name: "Hexa Ring",
+    name: "Gradient Lines",
     init: (props) =>
-      hexaRing({
+      gradientLines({
         ...props,
         ...setState(state),
       }),
@@ -104,6 +104,26 @@ const layerConstructors = [
       }),
     group: 3,
   },
+  {
+    name: "Hexa Ring",
+    init: (props) =>
+      hexaRing({
+        ...props,
+        ...setState(state),
+      }),
+    group: 4,
+  },
+
+  {
+    name: "Rotated Polygons",
+    init: (props) =>
+      rotatedPolygons({
+        ...props,
+        ...setState(state),
+      }),
+    group: 5,
+  },
+
 
   {
     name: "Simple Lines",
@@ -112,7 +132,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    group: 4,
+    group: 6,
   },
   {
     name: "Dotted Lines",
@@ -121,7 +141,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    group: 5,
+    group: 7,
   },
   {
     name: "Ring of Shapes",

@@ -146,7 +146,7 @@ function extract() {
   }
   NAME_TRANSLATED = true;
   state = {
-    size: 150,
+    size: 200,
     sides: alpha,
     stepsOut: 4,
     thinStroke: 1,
