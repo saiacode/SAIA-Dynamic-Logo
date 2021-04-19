@@ -16,7 +16,7 @@ const pointOnCircle = (posX, posY, radius, angle) => {
 
 const randomSelectTwo = () => {
   const rando = random(1);
-  return rando > 0.5 ? true : false;
+  return rando > 1 ? true : false;
 };
 
 const getRandomFromPalette = () => {
@@ -69,22 +69,22 @@ const myTriangle = (center, radius, direction) => {
 
 const layerConstructors = [
   {
-    name: "Outline Shape",
+    name: "Hexa Ring",
     init: (props) =>
-      outlineShape({
+      hexaRing({
         ...props,
         ...setState(state),
       }),
-    weight: 0.7,
+    weight: 0,
   },
   {
-    name: "Centered Shape",
+    name: "Expo Rings",
     init: (props) =>
-      centeredShape({
+      expoRings({
         ...props,
         ...setState(state),
       }),
-    weight: 1,
+    weight: 0,
   },
   {
     name: "Circles",
@@ -93,7 +93,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: .7,
+    weight: 1,
   },
   {
     name: "Simple Lines",
@@ -102,7 +102,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: 0.7,
+    weight: 1,
   },
   {
     name: "Dotted Lines",
@@ -111,7 +111,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: .7,
+    weight: 1,
   },
   {
     name: "Ring of Shapes",
@@ -140,7 +140,7 @@ const layerConstructors = [
         ...props,
         ...setState(state),
       }),
-    weight: 0.7,
+    weight: 1,
   },
 ];
 

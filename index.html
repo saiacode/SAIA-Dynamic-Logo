@@ -16,7 +16,7 @@
 </head>
 <!-- <body onload="extract()"> -->
 
-<body onload="document.getElementById('fname').focus()">
+<body onload="document.getElementById('totalName').focus()">
 
   <h1>SAIA Logo Din&aacute;mico</h1>
   <p>Refrescar la p&aacute;gina para borrar el canvas, sino sigue creando arriba de lo anterior.</p>
@@ -24,7 +24,7 @@
   <form id="f1" onsubmit="extract(); return false">
     <label for="fname">Tu nombre</label>
     <input type="text" id="totalName" name="fname" /><br /><br />
-    <input type="button" onclick="extract()" value="Crear Logo Personal" />
+    <input type="submit" value="Crear Logo Personal" />
   </form>
 
   <button onClick="downloadSvg()">guardar SVG</button>

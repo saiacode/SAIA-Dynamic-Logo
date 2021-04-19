@@ -21,8 +21,6 @@ function setup() {
   const totalX = START + GRIDBOX * COLUMNS;
   const totalY = START + GRIDBOX * ROWS;
   createCanvas(totalX, totalY, SVG);
-  // let cnv = createCanvas(totalX, totalY, SVG);
-  // cnv.parent('p5')
 
   PALETTE = [
     // color(255, 52, 154), // pink
@@ -34,30 +32,25 @@ function setup() {
 
   noLoop();
   angleMode(DEGREES);
-  // angleMode(RADIANS);
   rectMode(CENTER);
   ellipseMode(CENTER);
 }
 
 function draw() {
+  // let startpoint = { x: 0, y: 0 }
   let startpoint = { x: width / 4, y: height / 4 }
   translate(startpoint.x, startpoint.y);
-
-  // ellipse(0, 0, 100, 100)
-
-  //*********** */
+  // arc(10, 10, 100, 100, 45, 90)
+  drawCrystal(makeCrystal({ x: startpoint.x, y: startpoint.y }))
 
 
-  noFill();
-  push();
-  let n = state.textNormalized.length
-  let angle = 360 / n
-  let size = 10
+} //draw
 
-  // ellipse(0, 0, 200, 200)
 
-  console.log(`HOlaaa ${state.textNormalized}`)
 
+
+function two() {
+  // forma 0 : arcos para logos personales
   for (let i = 0; i <= n; i++) {
     let x = 0 + cos(i * angle)
     let y = 0 + sin(i * angle)
@@ -69,12 +62,6 @@ function draw() {
     arc(x, y, size * i / n * 30, size * i / n * 30, start, end)
   }
 
-  // arc(10, 10 , 100,100, 45,90)
+  arc(10, 10, 100, 100, 45, 90)
   pop();
-
-
-  //*********** */
-
-
-
-} //draw
+}

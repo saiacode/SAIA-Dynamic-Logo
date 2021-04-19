@@ -21,6 +21,7 @@ function extract() {
       .replace("9", "h")
       .replace(exclude_regex, "w")
 
+
   totalName = totalName.length < 4 ? `${totalName}${totalName}` : totalName
 
 
@@ -34,6 +35,53 @@ function extract() {
   }
   console.log('textNormalized')
   console.log(textNormalized)
+
+  let group1, group2, group3, group4, group5, testSecondLetter, rare = false
+
+
+  switch (totalName[0]) {
+    case 'a':
+      group1 = true
+      break;
+    case 'e':
+      group2 = true
+      break;
+    case 'i':
+      group3 = true
+      break;
+    case 'o':
+      group4 = true
+      break;
+    case 'u':
+      group5 = true
+      break;
+    default:
+      testSecondLetter = true
+      console.log('no vocals in first letter')
+  }
+
+  if (testSecondLetter) {
+    switch (totalName[1]) {
+      case 'a':
+        group1 = true
+        break;
+      case 'e':
+        group2 = true
+        break;
+      case 'i':
+        group3 = true
+        break;
+      case 'o':
+        group4 = true
+        break;
+      case 'u':
+        group5 = true
+        break;
+      default:
+        rare = true
+        console.log('no vocals in first or second letter')
+    }
+  }
 
 
   let alpha = totalName.length;
@@ -63,7 +111,7 @@ function extract() {
   let psi = canDivide(totalName.charCodeAt(0), 3);
   let omega = canDivide(totalName.charCodeAt(0), 2);
 
-  let greeks = {
+  let extractors = {
     alpha,
     beta,
     gamma,
@@ -88,22 +136,28 @@ function extract() {
     chi,
     psi,
     omega,
+    group1,
+    group2,
+    group3,
+    group4,
+    group5,
+    rare,
   };
 
   for (i = 0; i < totalName.length; i++) {
-    console.log(i + ")  " + totalName[i] + " #" + totalName.charCodeAt(i));
+    // console.log(i + ")  " + totalName[i] + " #" + totalName.charCodeAt(i));
   }
   NAME_TRANSLATED = true;
   state = {
-
+    size: 150,
     sides: alpha,
     stepsOut: 4,
     thinStroke: 1,
     thickStroke: 3,
-    ...greeks,
+    ...extractors,
     textNormalized
   };
-  console.log('state : ', state)
+  console.log('state before draw : ', state)
   draw()
 
 
