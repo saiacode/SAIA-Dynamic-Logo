@@ -132,6 +132,8 @@ const hexaRing = (state) => {
     state,
     render: () => {
       noFill();
+      stroke(state.layerColor);
+
       strokeWeight(state.weight);
       push();
       if (state.textNormalized) {
@@ -202,6 +204,8 @@ const expoRings = (state) => {
     state,
     render: () => {
       noFill();
+      stroke(state.layerColor);
+
       strokeWeight(state.weight);
       push();
       if (state.textNormalized) {

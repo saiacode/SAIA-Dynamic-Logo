@@ -36,49 +36,51 @@ function extract() {
   console.log('textNormalized')
   console.log(textNormalized)
 
-  let group1, group2, group3, group4, group5, testSecondLetter, rare = false
+  let group = 0
+
+  // let group, group, group, group, group, testSecondLetter, rare = false
 
 
   switch (totalName[0]) {
     case 'a':
-      group1 = true
+      group = 1
       break;
     case 'e':
-      group2 = true
+      group = 2
       break;
     case 'i':
-      group3 = true
+      group = 3
       break;
     case 'o':
-      group4 = true
+      group = 4
       break;
     case 'u':
-      group5 = true
+      group = 5
       break;
     default:
-      testSecondLetter = true
+      group = 0
       console.log('no vocals in first letter')
   }
 
-  if (testSecondLetter) {
+  if (group === 0) {
     switch (totalName[1]) {
       case 'a':
-        group1 = true
+        group = 1
         break;
       case 'e':
-        group2 = true
+        group = 2
         break;
       case 'i':
-        group3 = true
+        group = 3
         break;
       case 'o':
-        group4 = true
+        group = 4
         break;
       case 'u':
-        group5 = true
+        group = 5
         break;
       default:
-        rare = true
+        group = 0
         console.log('no vocals in first or second letter')
     }
   }
@@ -136,12 +138,7 @@ function extract() {
     chi,
     psi,
     omega,
-    group1,
-    group2,
-    group3,
-    group4,
-    group5,
-    rare,
+    group,
   };
 
   for (i = 0; i < totalName.length; i++) {
