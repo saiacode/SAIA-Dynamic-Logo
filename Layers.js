@@ -289,15 +289,6 @@ const dottedLines = (state) => {
 };
 
 const expoRings = (state) => {
-  //   state.randomShape = state.singleStep;
-  //   state.randomShape = random(1);
-  // state.shapeSize = state.omega * (0.7 + state.beta * 2) ? state.singleStep : state.singleStep
-  //   state.shapeSize = state.singleStep * ( 0.7 + state.beta * 2);
-  state.shapeSize = 100;
-  // state.weight = state.omega ? state.thinStroke : state.thickStroke;
-  state.weight = 3;
-
-  //   state.shapeSize = floor(random(state.stepsOut / 2, state.stepsOut - 2)) * state.singleStep;
 
   return {
     name: "Expo Rings",
@@ -305,14 +296,18 @@ const expoRings = (state) => {
     render: () => {
       noFill();
       stroke(state.layerColor);
-
-      strokeWeight(state.weight);
       push();
       if (state.textNormalized) {
-        // un ring por cada letra del nombre
+        const hash = state.textNormalized
         let n = state.textNormalized.length
         for (let i = 0; i < n + 1; i++) {
-          let d = 300 * state.textNormalized[i]
+          let d = state.size * hash[i]
+          strokeWeight(hash[i] + 0.3)
+          ellipse(0, 0, d, d);
+        }
+        for (let i = 0; i < n + 1; i++) {
+          let d = state.size * (1 - hash[i])
+          strokeWeight(hash[i] + 0.9)
           ellipse(0, 0, d, d);
         }
       }
