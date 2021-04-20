@@ -106,16 +106,38 @@ const hexaRing = (state) => {
 
         let n = hash.length
         let size = 60 + 60 * hash[0]
-        let angle = 360 / n
+        let angle = 360 / 6
 
-        // rotate(angle)
+        rotate(90)
 
+        let m1 = 1.1
+        let m2 = 1.1
+        let m3 = 50
 
-        for (let i = 0; i < n; i++) {
-          let x = cos(angle) * size
-          let y = sin(angle) * size * 0.8
-          hexagon(x, y, size);
-          angle += angle
+        // y es horizontal y positivo a la izquierda
+        // x es vertical y positivo hacia abajo
+        ellipse(0, 0, size, size)
+        hexagon(0, 0, size)
+        stroke(color(255, 255, 255))
+        // hexagon(- size * sin(80), - size * cos(80), size)
+        // hexagon(size * 0.9, size * 0.7, size)
+        // hexagon(size * 0.9, - size * 0.7, size)
+        // hexagon(size * 1.7, size * 0.1, size)
+        // hexagon(size * 1.7, size * 0.1, size)
+        // hexagon(size * sin(angle) / 0.955, size * cos(angle) / 2.5, size)
+        // hexagon(size * 0.9, - size * 0.2, size)
+
+        // hexagon(size * sin(angle * 2) / 0.955, size * cos(angle * 2) / 2.5, size)
+        // hexagon(size * 1.5, size * cos(angle * 2) / 2.5, size)
+        // hexagon(size * 1.2, - size * 1.2, size)
+        // hexagon(size * 1.2, - size * 1.2, size)
+        // hexagon(cos(angle) * 100, sin(angle) * 100, 100)
+
+        angle = 80
+
+        for (let i = 0; i < 7; i++) {
+          hexagon(- size * sin(angle), - size * cos(angle), size)
+          angle += 60
         }
         // for (let i = 0; i < n; i++) {
         //   let x = cos(angle) * 7

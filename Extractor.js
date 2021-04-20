@@ -89,17 +89,20 @@ function extract() {
   let alpha = totalName.length;
   let beta = 1 - (totalName.charCodeAt(0) - 97) / 25;
   let gamma = totalName.length % 2 || 0;
-  let delta = (totalName.charCodeAt(1) - 97) / 25 || 0;
-  let epsilon = (totalName.charCodeAt(2) - 97) / 25 || 0;
+
+  let delta = canDivide(totalName.charCodeAt(0), 2);
+  let epsilon = canDivide(totalName.charCodeAt(1), 2)
   let zeta = canDivide(totalName.charCodeAt(2), 2);
-  let eta = (totalName.charCodeAt(3) - 97) / 25 || 0;
-  let theta = canDivide(totalName.charCodeAt(3), 2);
-  let iota = (totalName.charCodeAt(4) - 96) / 25 || 0;
-  let kappa = canDivide(totalName.charCodeAt(4), 2);
-  let lambda = (totalName.charCodeAt(5) - 96) / 25 || 0;
-  let mu = canDivide(totalName.charCodeAt(5), 2);
+  let eta = canDivide(totalName.charCodeAt(3), 2)
 
 
+  let theta = canDivide(totalName.charCodeAt(0), 3);
+  let iota = canDivide(totalName.charCodeAt(1), 3);
+  let kappa = canDivide(totalName.charCodeAt(2), 3);
+  let lambda = canDivide(totalName.charCodeAt(3), 3);
+
+
+  let mu = canDivide(totalName.charCodeAt(0), 3);
   let nu = (totalName.charCodeAt(6) - 96) / 25 || 0;
   let xi = canDivide(totalName.charCodeAt(6), 7);
   let omicron = canDivide(totalName.charCodeAt(1), 5);
