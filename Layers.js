@@ -121,12 +121,19 @@ const hexaRing = (state) => {
         let nodes = []
 
         let hexaAngle = 71
-        for (let k = 1; k < 10; k++) {
-          strokeWeight(state.weight - k * 0.3)
+        for (let k = 1; k < n; k++) {
+          strokeWeight(state.weight - k * n / 10)
 
           for (let i = 0; i < 7; i++) {
-            nodes.push({ x: - size * sin(hexaAngle), y: -size * cos(hexaAngle) })
-            hexagon(- size * sin(hexaAngle), - size * cos(hexaAngle), size * (1 - k * 0.1))
+            const x = - size * sin(hexaAngle)
+            const y = - size * cos(hexaAngle)
+            const shapeSize = size * (1 - k * 0.1) - (1 * size / n)
+            if (i < 0) {
+              ellipse(x, y, shapeSize * 2, shapeSize * (i * 0.1))
+            } else {
+              hexagon(x, y, shapeSize)
+            }
+            nodes.push({ x, y })
             hexaAngle += angle
           }
 
