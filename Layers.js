@@ -190,25 +190,36 @@ const concentricVertexDonuts = (state) => {
       // strokeWeight(state.weight);
       push();
       if (state.textNormalized) {
+
+
+
         let hash = state.textNormalized
         let rev = state.textNormalized.reverse()
-        while (hash.length < 300) {
-          hash.push(rev)
-          hash.push(state.textNormalized)
+        while (hash.length < 9) {
+          rev.map(n => hash.push(n))
+          state.textNormalized.map(n => hash.push(n))
         }
 
         const n = hash.length
-        // console.log(n)
+        console.log(hash)
 
-
+        let outer = state.size * 2
         let start = 0
         let end = 0
-        for (let j = 0; j < 10; j++) {
+        let layer = 1
+
+
+        for (let j = 0; j < n; j++) {
+          let ring_reduction = 0.65
+          let ring_spacing = state.size * 0.04
+
+
+
           if (end < 300) {
 
             if (j % 2 !== 0) {
               end = start + hash[j] * 140
-              vertexDonut(400, 300, start, end)
+              vertexDonut(outer, outer * ring_reduction, start, end)
               console.log(`\n START: ${start} END: ${end}`)
             } else {
               end = start + hash[j] * 40
@@ -216,18 +227,23 @@ const concentricVertexDonuts = (state) => {
             }
 
           } else {
-            // inaugurar nueva capa
-            if (j % 2 !== 0) {
-              end = start + hash[j] * 140
-              vertexDonut(280, 200, start, end)
-              console.log(`\n START: ${start} END: ${end}`)
-            } else {
-              end = start + hash[j] * 40
-              console.log(`\n START: ${start} END: ${end}`)
-            }
+            // llenar capa
+            end = start + hash[j] * 30
+
+            vertexDonut(outer, outer * ring_reduction, start, end)
+            outer = outer * (1 - ring_reduction) - ring_spacing
+            layer++
+            start = 0
+            end = 0
+
           }
 
-          start = end
+
+
+
+
+
+          start = end + 5
         }
 
 
