@@ -89,9 +89,7 @@ const simpleLines = (state) => {
 };
 
 const hexaRing = (state) => {
-  state.weight = state.omega ? state.thickStroke : state.thinStroke;
-  state.hexagonTrue = state.omega;
-
+  state.weight = 3
   return {
     name: "Hexa Ring",
     state,
@@ -120,22 +118,32 @@ const hexaRing = (state) => {
         // hexagon(0, 0, size)
         // stroke(color(255, 255, 255))
 
-        angle = 80
         let nodes = []
 
-        for (let i = 0; i < 7; i++) {
-          nodes.push({ x: - size * sin(angle) / 2, y: -size * cos(angle) / 2 })
-          hexagon(- size * sin(angle), - size * cos(angle), size)
-          angle += 60
+        let hexaAngle = 71
+        for (let k = 1; k < 10; k++) {
+          strokeWeight(state.weight - k * 0.3)
+
+          for (let i = 0; i < 7; i++) {
+            nodes.push({ x: - size * sin(hexaAngle), y: -size * cos(hexaAngle) })
+            hexagon(- size * sin(hexaAngle), - size * cos(hexaAngle), size * (1 - k * 0.1))
+            hexaAngle += angle
+          }
+
+
+
         }
-        console.log(nodes)
+
+        // console.log(nodes)
 
         let step = 1
 
-        for (let i = 0; i < nodes.length - step; i++) {
-          let j = i + step
-          line(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y)
-        }
+        // strokeWeight(0.2)
+
+        // for (let i = 0; i < nodes.length - step; i++) {
+        //   let j = i + step
+        //   line(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y)
+        // }
 
         // for (let i = 0; i < n; i++) {
         //   let x = cos(angle) * 7
