@@ -195,10 +195,13 @@ const concentricVertexDonuts = (state) => {
 
         let hash = state.textNormalized
         let rev = state.textNormalized.reverse()
-        while (hash.length < 9) {
-          rev.map(n => hash.push(n))
-          state.textNormalized.map(n => hash.push(n))
+        if (hash.length < 20) {
+          while (hash.length < 50) {
+            rev.map(n => hash.push(n))
+            state.textNormalized.map(n => hash.push(n))
+          }
         }
+
 
         const n = hash.length
         console.log(hash)
@@ -210,7 +213,7 @@ const concentricVertexDonuts = (state) => {
 
 
         for (let j = 0; j < n; j++) {
-          let ring_reduction = 0.65
+          let ring_thickness = outer * 0.2
           let ring_spacing = state.size * 0.04
 
 
@@ -219,7 +222,7 @@ const concentricVertexDonuts = (state) => {
 
             if (j % 2 !== 0) {
               end = start + hash[j] * 140
-              vertexDonut(outer, outer * ring_reduction, start, end)
+              vertexDonut(outer, outer - ring_thickness, start, end)
               console.log(`\n START: ${start} END: ${end}`)
             } else {
               end = start + hash[j] * 40
@@ -230,8 +233,9 @@ const concentricVertexDonuts = (state) => {
             // llenar capa
             end = start + hash[j] * 30
 
-            vertexDonut(outer, outer * ring_reduction, start, end)
-            outer = outer * (1 - ring_reduction) - ring_spacing
+            vertexDonut(outer, outer - ring_thickness, start, end)
+            outer = outer - ring_thickness - ring_spacing
+            // outer = outer - 30
             layer++
             start = 0
             end = 0
