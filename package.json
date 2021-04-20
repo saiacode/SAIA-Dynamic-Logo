@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/saiacode/SAIA-Dynamic-Logo#readme",
   "dependencies": {
-    "vite": "^2.2.1"
+    "vite": "^2.2.1",
+    "z": "^1.0.9"
   }
 }

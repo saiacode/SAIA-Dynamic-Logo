@@ -57,6 +57,27 @@ const donut = (D, d, angleStart, angle) => {
   arc(0, 0, d, d, 0, angle, OPEN)
   rotate(- angleStart)
 }
+const vertexDonut = (D, d, angleStart, angle) => {
+  // rotate(angleStart)
+  // noFill()
+  const R = D / 2
+  const r = d / 2
+  beginShape()
+  // vertex(0, 0)
+  let angles = []
+  for (let a = angleStart; a < angle; a++) {
+    angles.push(a)
+    vertex(R * cos(a), R * sin(a))
+  }
+  let reversedAngles = angles.reverse()
+  for (let i = 0; i < angles.length; i++) {
+    vertex(r * cos(reversedAngles[i]), r * sin(reversedAngles[i]))
+  }
+  // vertex(r * cos(angle), r * sin(angle))
+  // vertex(r, 0)
+  endShape(CLOSE);
+
+}
 
 function coords() {
   stroke(color(200, 100, 200))
@@ -91,7 +112,8 @@ function test() {
   // line(r, 0, p, 0)
   // arc(0, 0, r, r, 0, angle, OPEN)
 
-  donut(400, 395, 49, 108)
+  // donut(400, 395, 49, 108)
+  vertexDonut(400, 350, 200, 280)
 
 
 } //test

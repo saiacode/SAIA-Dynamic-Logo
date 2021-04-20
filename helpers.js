@@ -69,9 +69,9 @@ const myTriangle = (center, radius, direction) => {
 
 const layerConstructors = [
   {
-    name: "Circles",
+    name: "Concentric Vertex Donuts",
     init: (props) =>
-      circles({
+      concentricVertexDonuts({
         ...props,
         ...setState(state),
       }),

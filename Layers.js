@@ -1,3 +1,4 @@
+
 let state = {
   sides: 1,
   stepsOut: 8,
@@ -171,6 +172,73 @@ const hexaRing = (state) => {
 
 
       }
+      pop();
+    },
+  };
+};
+const concentricVertexDonuts = (state) => {
+  state.weight = state.omega ? state.thickStroke : state.thinStroke;
+  state.hexagonTrue = state.omega;
+
+  return {
+    name: "Concentric Vertex Donuts",
+    state,
+    render: () => {
+      // stroke(state.layerColor);
+      fill(state.layerColor);
+      noStroke()
+      // strokeWeight(state.weight);
+      push();
+      if (state.textNormalized) {
+        let hash = state.textNormalized
+        let rev = state.textNormalized.reverse()
+        while (hash.length < 300) {
+          hash.push(rev)
+          hash.push(state.textNormalized)
+        }
+
+        const n = hash.length
+        // console.log(n)
+
+
+        let start = 0
+        let end = 0
+        for (let j = 0; j < 10; j++) {
+          if (end < 300) {
+
+            if (j % 2 !== 0) {
+              end = start + hash[j] * 140
+              vertexDonut(400, 300, start, end)
+              console.log(`\n START: ${start} END: ${end}`)
+            } else {
+              end = start + hash[j] * 40
+              console.log(`\n START: ${start} END: ${end}`)
+            }
+
+          } else {
+            // inaugurar nueva capa
+            if (j % 2 !== 0) {
+              end = start + hash[j] * 140
+              vertexDonut(280, 200, start, end)
+              console.log(`\n START: ${start} END: ${end}`)
+            } else {
+              end = start + hash[j] * 40
+              console.log(`\n START: ${start} END: ${end}`)
+            }
+          }
+
+          start = end
+        }
+
+
+
+        // vertexDonut(500, 320, 90, 370)
+      }
+
+
+
+
+
       pop();
     },
   };

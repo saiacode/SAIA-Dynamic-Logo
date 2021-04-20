@@ -80,7 +80,7 @@ function extract() {
         group = 5
         break;
       default:
-        group = 5
+        group = 0
         console.log('no vocals in first or second letter')
     }
   }
