@@ -116,29 +116,27 @@ const hexaRing = (state) => {
 
         // y es horizontal y positivo a la izquierda
         // x es vertical y positivo hacia abajo
-        ellipse(0, 0, size, size)
-        hexagon(0, 0, size)
-        stroke(color(255, 255, 255))
-        // hexagon(- size * sin(80), - size * cos(80), size)
-        // hexagon(size * 0.9, size * 0.7, size)
-        // hexagon(size * 0.9, - size * 0.7, size)
-        // hexagon(size * 1.7, size * 0.1, size)
-        // hexagon(size * 1.7, size * 0.1, size)
-        // hexagon(size * sin(angle) / 0.955, size * cos(angle) / 2.5, size)
-        // hexagon(size * 0.9, - size * 0.2, size)
-
-        // hexagon(size * sin(angle * 2) / 0.955, size * cos(angle * 2) / 2.5, size)
-        // hexagon(size * 1.5, size * cos(angle * 2) / 2.5, size)
-        // hexagon(size * 1.2, - size * 1.2, size)
-        // hexagon(size * 1.2, - size * 1.2, size)
-        // hexagon(cos(angle) * 100, sin(angle) * 100, 100)
+        // ellipse(0, 0, size, size)
+        // hexagon(0, 0, size)
+        // stroke(color(255, 255, 255))
 
         angle = 80
+        let nodes = []
 
         for (let i = 0; i < 7; i++) {
+          nodes.push({ x: - size * sin(angle) / 2, y: -size * cos(angle) / 2 })
           hexagon(- size * sin(angle), - size * cos(angle), size)
           angle += 60
         }
+        console.log(nodes)
+
+        let step = 1
+
+        for (let i = 0; i < nodes.length - step; i++) {
+          let j = i + step
+          line(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y)
+        }
+
         // for (let i = 0; i < n; i++) {
         //   let x = cos(angle) * 7
         //   let y = sin(angle) * 7
