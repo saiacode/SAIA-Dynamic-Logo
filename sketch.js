@@ -46,4 +46,54 @@ function draw() {
 
 } //draw
 
+const donut = (D, d, angleStart, angle) => {
+  rotate(angleStart)
+  noFill()
+  const R = D / 2
+  const r = d / 2
+  arc(0, 0, D, D, 0, angle, OPEN)
+  line(R * cos(angle), R * sin(angle), r * cos(angle), r * sin(angle))
+  line(R, 0, r, 0)
+  arc(0, 0, d, d, 0, angle, OPEN)
+  rotate(- angleStart)
+}
+
+function coords() {
+  stroke(color(200, 100, 200))
+  line(-100, 0, 100, 0)
+  line(0, -100, 0, 100)
+  line(100, -10, 100, 10)
+  line(-100, -10, -100, 10)
+  line(10, -100, -10, -100)
+  line(10, 100, -10, 100)
+}
+
+function test() {
+  // let startpoint = { x: 0, y: 0 }
+  let startpoint = { x: width / 2, y: height / 2 }
+  translate(startpoint.x, startpoint.y);
+  // noFill()
+  stroke(color(200, 200, 200))
+
+
+
+  // const R = 400
+  // const r = R / 2
+  // const p = r / 2
+  // const angle = 350
+
+  // arc(0, 0, R, R, 0, angle, OPEN)
+  coords()
+
+  // line(r * cos(angle), r * sin(angle), p * cos(angle), p * sin(angle))
+  stroke(color(200, 200, 200))
+
+  // line(r, 0, p, 0)
+  // arc(0, 0, r, r, 0, angle, OPEN)
+
+  donut(400, 395, 49, 108)
+
+
+} //test
+
 

@@ -89,7 +89,7 @@ const simpleLines = (state) => {
 };
 
 const hexaRing = (state) => {
-  state.weight = 3
+  state.weight = 2
   return {
     name: "Hexa Ring",
     state,
@@ -121,18 +121,22 @@ const hexaRing = (state) => {
         let nodes = []
 
         let hexaAngle = 71
-        for (let k = 1; k < n; k++) {
-          strokeWeight(state.weight - k * n / 10)
+        let m = n > 16 ? 16 : n
+        for (let k = 1; k < m; k++) {
+          // strokeWeight(state.weight - k * n / 10)
+          strokeWeight(state.weight * (1 - hash[k]))
 
           for (let i = 0; i < 7; i++) {
-            const x = - size * sin(hexaAngle)
-            const y = - size * cos(hexaAngle)
+            let x = - size * sin(hexaAngle)
+            let y = - size * cos(hexaAngle)
+
+
             const shapeSize = size * (1 - k * 0.1) - (1 * size / n)
             if (i < 0) {
-              ellipse(x, y, shapeSize * 2, shapeSize * (i * 0.1))
+              // rect(x, y, x + shapeSize, y + shapeSize)
+              rect(x, y, 100 * k, 100 - i * k)
             } else {
-              // hexagon(x, y, shapeSize)
-              myTriangle(x, state.radius, state.direction);
+              hexagon(x, y, shapeSize)
 
             }
             nodes.push({ x, y })

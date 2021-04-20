@@ -14,29 +14,30 @@
   <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 
 </head>
-<!-- <body onload="extract()"> -->
 
-<body onload="document.getElementById('totalName').focus()">
+<body onload="test()">
 
-  <h1>SAIA Logo Din&aacute;mico</h1>
-  <p>Refrescar la p&aacute;gina para borrar el canvas, sino sigue creando arriba de lo anterior.</p>
-  <div id="p5"></div>
-  <form id="f1" onsubmit="extract(); return false">
-    <label for="fname">Tu nombre</label>
-    <input type="text" id="totalName" name="fname" /><br /><br />
-    <input type="submit" value="Crear Logo Personal" />
-    <button onClick="downloadSvg()">guardar SVG</button>
-  </form>
+  <body onload="document.getElementById('totalName').focus()">
 
-
-
-  <script>
+    <h1>SAIA Logo Din&aacute;mico</h1>
+    <p>Refrescar la p&aacute;gina para borrar el canvas, sino sigue creando arriba de lo anterior.</p>
+    <div id="p5"></div>
+    <form id="f1" onsubmit="extract(); return false">
+      <label for="fname">Tu nombre</label>
+      <input type="text" id="totalName" name="fname" /><br /><br />
+      <input type="submit" value="Crear Logo Personal" />
+      <button onClick="downloadSvg()">guardar SVG</button>
+    </form>
 
 
 
+    <script>
 
 
-  </script>
-</body>
+
+
+
+    </script>
+  </body>
 
 </html>
