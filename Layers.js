@@ -222,14 +222,15 @@ const rotatedPolygons = (state) => {
       if (state.textNormalized) {
 
         let n = state.textNormalized.length
+        let hash = state.textNormalized
         let angle = 360 / n
         let size = 15
 
         for (let i = 0; i < n; i++) {
-          let diameter = 30 * i
+          let diameter = 50 * i
 
           diameter > state.size ?
-            hexagon(0, 0, state.size - i) :
+            hexagon(0, 0, state.size - 10 * hash[i] * i) :
             hexagon(0, 0, diameter)
 
 
