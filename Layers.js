@@ -226,7 +226,12 @@ const rotatedPolygons = (state) => {
         let size = 15
 
         for (let i = 0; i < n; i++) {
-          hexagon(0, 0, 30 * i);
+          let diameter = 30 * i
+
+          diameter > state.size ?
+            hexagon(0, 0, state.size - i) :
+            hexagon(0, 0, diameter)
+
 
           rotate(360 / (0.8 * n));
         }
