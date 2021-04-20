@@ -131,7 +131,9 @@ const hexaRing = (state) => {
             if (i < 0) {
               ellipse(x, y, shapeSize * 2, shapeSize * (i * 0.1))
             } else {
-              hexagon(x, y, shapeSize)
+              // hexagon(x, y, shapeSize)
+              myTriangle(x, state.radius, state.direction);
+
             }
             nodes.push({ x, y })
             hexaAngle += angle
