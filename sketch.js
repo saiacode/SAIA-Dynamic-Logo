@@ -7,6 +7,7 @@ let NAME_TRANSLATED = false;
 // layout
 const MARGIN = CRYSTAL_SIZE / 2;
 const COLUMNS = 1;
+
 const ROWS = 1;
 const PADDING = CRYSTAL_SIZE * 0.2;
 const GRIDBOX = CRYSTAL_SIZE + PADDING;
@@ -23,10 +24,10 @@ function setup() {
   createCanvas(totalX, totalY, SVG);
 
   PALETTE = [
-    color(255, 52, 154), // pink
+    // color(255, 52, 154), // pink
     // color(168, 168, 168), // gray
     // color(0, 0, 0), // black
-    // color(255, 255, 255), //white
+    color(255, 255, 255), //white
     // color(4, 0, 152), // blue
   ];
 
